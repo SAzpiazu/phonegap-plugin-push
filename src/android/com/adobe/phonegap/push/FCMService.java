@@ -357,6 +357,7 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
       intent.putExtra(PUSH_BUNDLE, extras);
       intent.putExtra(START_IN_BACKGROUND, true);
       intent.putExtra(FOREGROUND, false);
+      intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
       startActivity(intent);
     } else if ("1".equals(contentAvailable)) {
       Log.d(LOG_TAG, "app is not running and content available true");
